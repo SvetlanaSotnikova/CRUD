@@ -41,15 +41,15 @@ Where `{CONTAINER_NAME}` is one of:
 
 `docker exec -ti {CONTAINER_NAME} /bin/bash`
 
-#CRUD PROJECT
-##Visible Site
+# CRUD PROJECT
+## Visible Site
 ![image](https://github.com/user-attachments/assets/03519312-6939-4c8f-b8b7-1ea39d6e6ddf)
 
 ## MyPhpAdmin
 создала файл .yml чтобы установить этот phpAdmin и иметь постоянный доступ к бд
 ![image](https://github.com/user-attachments/assets/1211dc55-b869-405d-b2c0-4f560afbd3ad)
 
-##Method CREATE
+## Method CREATE
 
 ```
 // create
@@ -79,7 +79,7 @@ if (isset($_POST['add'])) {
 далее видно, что данные сохранились в базу данных с флагом 0 (видимым для пользователя)
 ![image](https://github.com/user-attachments/assets/399382a1-1950-4434-a4a6-8f4af93c042d)
 
-##Method READ
+## Method READ
 
 ```
 // read
@@ -92,7 +92,7 @@ $result = $sql -> fetchAll(PDO::FETCH_OBJ);
 ![image](https://github.com/user-attachments/assets/14a4343d-a214-466a-98db-93abaf3a4c1c)
 
 
-##Method UPDATE
+## Method UPDATE
 
 ```
 // update
@@ -127,7 +127,7 @@ if (isset($_POST['edit'])) {
 ![image](https://github.com/user-attachments/assets/78370883-a5b4-490e-a0d8-44f527d0d0c2)
 
 
-##Method DELETE
+## Method DELETE
 
 ```
 // delete
