@@ -30,8 +30,11 @@ To use it, simply follow the following steps:
 Clone this repository with the following command: `git clone https://github.com/stevenliebregt/docker-compose-lemp-stack.git`.
 
 `docker-compose down`
+
 `docker-compose build php`
+
 `docker-compose up -d`
+
 
 
 ##### Start the server.
