@@ -29,9 +29,16 @@ To use it, simply follow the following steps:
 
 Clone this repository with the following command: `git clone https://github.com/stevenliebregt/docker-compose-lemp-stack.git`.
 
+`docker-compose down`
+`docker-compose build php`
+`docker-compose up -d`
+
+
 ##### Start the server.
 
 Start the server using the following command inside the directory you just cloned: `docker-compose up`.
+
+
 
 ## Entering the containers
 
@@ -39,7 +46,7 @@ You can use the following command to enter a container:
 
 Where `{CONTAINER_NAME}` is one of:
 
-`docker exec -ti {CONTAINER_NAME} /bin/bash`
+`docker exec -ti {CONTAINER_NAME} bash`
 
 # CRUD PROJECT
 ## Visible Site
