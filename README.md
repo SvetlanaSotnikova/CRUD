@@ -163,6 +163,10 @@ if (isset($_POST['delete'])) {
 }
 ```
 I used 'UPDATE' because completely deleting all data is not good so I change the flag to 1 to server does not display the 'deleted' record from our table
+But we can use 'DELETE' method, but your line will delete in our database and we will lost information about it
+
+But I dont recommend using '*' in your query, because it greatly overloads in your database, it is better to enter field separately in the selection.
+
 
 This is what the delete window looks like:
 ![image](https://github.com/user-attachments/assets/62e5dd1e-f74c-4f7c-9e48-8770724aa69e)
