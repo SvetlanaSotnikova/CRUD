@@ -108,7 +108,7 @@ $sql -> execute();
 $result = $sql -> fetchAll(PDO::FETCH_OBJ);
 ```
 
-immediatly after creation, we can see the new row in our table on the site, the site is synchronized the database
+immediatly after creation, we can see the new line in our table on the site, the site is synchronized the database
 
 ![image](https://github.com/user-attachments/assets/14a4343d-a214-466a-98db-93abaf3a4c1c)
 
