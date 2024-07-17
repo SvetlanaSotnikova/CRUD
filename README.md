@@ -33,13 +33,11 @@ Clone this repository with the following command: `git clone https://github.com/
 
 `docker-compose build php`
 
-`docker-compose up -d`
-
 
 
 ##### Start the server.
 
-Start the server using the following command inside the directory you just cloned: `docker-compose up`.
+Start the server using the following command inside the directory you just cloned: `docker-compose up -d`.
 
 
 
