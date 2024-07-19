@@ -1,6 +1,5 @@
 <?php
-    include "config.php";
-   
+
     $name = $_POST['name'] ?? null;
     $email = $_POST['email'] ?? null;
     $get_id = $_GET['id'] ?? null;

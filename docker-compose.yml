@@ -1,13 +1,13 @@
 version: '3'
 services:
     php:
-        # image: 'php:8.3-fpm'
         build:
             context: ./docker
             dockerfile: php.Dockerfile
         container_name: ${APP_NAME:?err}-php
         volumes:
             - './app:/var/www/html'
+            - './config:/var/www/html/config'
         depends_on:
             - mariadb
 
