@@ -4,62 +4,54 @@
     $email = $_POST['email'] ?? null;
     $get_id = $_GET['id'] ?? null;
 
+
 // create
 if (isset($_POST['add'])) {
 
-    if (empty($email)) {
-        $error = "Email should not be empty";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Invalid email format";
-    } else {  
-        try {
-            $sql = ("INSERT INTO user (name, email, flag) VALUES (?,?, 0)");
-            $query = $pdo->prepare($sql);
-            $query -> execute([$name, $email]);
-
-            if ($query) {
-                header("Location: " . $_SERVER['HTTP_REFERER']);
-            }
-        } catch (PDOException $e) {
-            $error = $e->getMessage();
-        }
+    $result = createUser($email,$name);
+    if($result) {
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+    } else {
+        $error = "Failed to create user :(";
     }
+    
 }
 
 
 // read
-$sql = $pdo -> prepare("SELECT * FROM user WHERE flag = 0");
-$sql -> execute();
-$result = $sql -> fetchAll(PDO::FETCH_OBJ);
+$users = getUsers();
+if ($users) {
+    $result = getUsers();
+} else {
+    $error = "Failed to fetch users :(";
+}
 
 
 // update
 if (isset($_POST['edit'])) {
-    if (empty($email)) {
-        $error = "Email should not be empty";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Invalid email format";
+    
+    $result = updateUser($get_id, $email, $name);
+    if($result) {   
+        header("Location: " . $_SERVER['HTTP_REFERER']);
     } else {
-        try {
-            $sql = ("UPDATE user SET name=?, email=? WHERE id=?");
-            $query = $pdo->prepare($sql);
-            $query -> execute([$name, $email, $get_id]);
-            if ($query) {
-                header("Location: " . $_SERVER['HTTP_REFERER']);
-            }
-        } catch (PDOException $e) {
-            $error = $e->getMessage();
-        }
-    }   
+        $error = "Failed to update user :(";
+    }
+   
 }
 
 
 // delete
 if (isset($_POST['delete'])) {
-    $sql = ("UPDATE user SET flag = 1 WHERE id = ?");
-    $query = $pdo->prepare($sql);
-    $query -> execute([$get_id]);
-    if ($query) {
+    $result = deleteUser($get_id);
+    if($result) {
         header("Location: " . $_SERVER['HTTP_REFERER']);
+    } else {
+        $error = "Failed to delete user :(";
     }
+    // $sql = ("UPDATE user SET flag = 1 WHERE id = ?");
+    // $query = $pdo->prepare($sql);
+    // $query -> execute([$get_id]);
+    // if ($query) {
+    //     header("Location: " . $_SERVER['HTTP_REFERER']);
+    // }
 }
